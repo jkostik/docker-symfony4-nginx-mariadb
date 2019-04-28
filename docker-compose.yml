@@ -7,15 +7,17 @@ services:
       MYSQL_DATABASE: symfony_webapp
       MYSQL_USER: app_user
       MYSQL_PASSWORD: app_password
+    ports:
+      - "3333:3306"
   www:
     build: ./www/
     links:
       - db
     volumes:
       - ./www/:/var/www/:rw
-      - ./www/webapp/:/var/www/webapp/:rw
+      - ./www/html/:/var/www/html/:rw
   nginx:
-    build: ./nginx/
+    build: ./nginx
     links:
       - www
     volumes_from:
