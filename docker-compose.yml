@@ -14,8 +14,7 @@ services:
     links:
       - db
     volumes:
-      - ./www/:/var/www/:rw
-      - ./www/html/:/var/www/html/:rw
+      - ./www/webapp/:/var/www/html/webapp/
   nginx:
     build: ./nginx
     links:
