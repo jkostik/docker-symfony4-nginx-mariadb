@@ -1,4 +1,4 @@
-version: "2"
+version: "2.4"
 services:
   db:
     build: ./db/
@@ -11,14 +11,10 @@ services:
       - "3333:3306"
   www:
     build: ./www/
-    links:
-      - db
     volumes:
-      - ./www/webapp/:/var/www/html/webapp/
+      - ./www/webapp:/var/www/webapp
   nginx:
     build: ./nginx
-    links:
-      - www
     volumes_from:
       - www
     ports:
